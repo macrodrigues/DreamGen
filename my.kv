@@ -1,0 +1,34 @@
+#:import hex kivy.utils.get_color_from_hex
+MyHome:
+<MyHome>:
+    MDFloatLayout:
+        md_bg_color: hex('#003153') # background color
+        MDLabel:
+            text: "DreamGen"
+            color: hex('#f5deb3')
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .9}
+            font_size: "40sp"
+            font_name: "Pacifico"
+        MDTextField:
+            hint_text: "I had a dream..."
+            hint_text_color_normal: hex("#00aae4")
+            hint_text_color_focus: hex("#00aae4")
+            helper_text_color_focus: hex("#00aae4")
+            line_color_normal: hex('#003153') #make line color of background
+            line_color_focus: hex('#003153') #make line color of background
+            helper_text: "Write what comes to your mind"
+            helper_text_mode: "on_focus"
+            text_color_focus: hex('#add8e6') # color of text clicked
+            text_color_normal: hex('#add8e6') # color of text without clicked
+            mode: "rectangle"
+            multiline: True
+            size_hint_x: 0.7
+            size_hint_y: 0.5
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDFillRoundFlatButton:
+            text: "Generate"
+            text_color: hex('#003153')
+            md_bg_color: hex('#add8e6')
+            pos_hint: {"center_x": .5, "center_y": .1}
+            font_size: "15sp"
