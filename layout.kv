@@ -11,6 +11,7 @@
             font_size: "40sp"
             font_name: "Pacifico"
         MDTextField:
+            id: input
             hint_text: "I had a dream..."
             hint_text_color_normal: hex("#00aae4")
             hint_text_color_focus: hex("#00aae4")
@@ -32,7 +33,9 @@
             md_bg_color: hex('#add8e6')
             pos_hint: {"center_x": .5, "center_y": .1}
             font_size: "15sp"
-            on_release: root.manager.current = "results"
+            on_release: 
+                root.manager.current = "results"
+                root.gen_images()
 
 <ResultsScreen>:
     name: 'results'
