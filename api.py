@@ -1,6 +1,6 @@
 import openai
 openai.organization = "org-2P7RBkMj286pwFp2tBL0Pdbe"
-openai.api_key = "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"
+openai.api_key = "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"
 
 def gen_5_images(prompt):
     list_of_urls = []
@@ -11,5 +11,5 @@ def gen_5_images(prompt):
             size="1024x1024")
         image_url = response['data'][0]['url']
         list_of_urls.append(image_url)
-    return '\n'.join(str(i) for i in list_of_urls)
+    return list_of_urls
     
