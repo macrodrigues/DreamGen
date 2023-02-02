@@ -1,6 +1,6 @@
 #:import hex kivy.utils.get_color_from_hex
-MyHome:
-<MyHome>:
+<HomeScreen>:
+    name: 'home'
     MDFloatLayout:
         md_bg_color: hex('#003153') # background color
         MDLabel:
@@ -32,3 +32,23 @@ MyHome:
             md_bg_color: hex('#add8e6')
             pos_hint: {"center_x": .5, "center_y": .1}
             font_size: "15sp"
+            on_release: root.manager.current = "results"
+
+<ResultsScreen>:
+    name: 'results'
+    MDFloatLayout:
+        md_bg_color: hex('#003153') # background color
+        MDLabel:
+            text: "DreamGen"
+            color: hex('#f5deb3')
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .9}
+            font_size: "40sp"
+            font_name: "Pacifico"
+        MDFillRoundFlatButton:
+            text: "Try again!"
+            text_color: hex('#003153')
+            md_bg_color: hex('#add8e6')
+            pos_hint: {"center_x": .5, "center_y": .1}
+            font_size: "15sp"
+            on_release: root.manager.current = "home"
