@@ -1,6 +1,11 @@
 import openai
-openai.organization = "org-2P7RBkMj286pwFp2tBL0Pdbe"
-openai.api_key = "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"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+openai.organization = os.getenv("ORG")
+openai.api_key = os.getenv("API_KEY")
 
 def gen_5_images(prompt):
     list_of_urls = []

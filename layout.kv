@@ -28,14 +28,15 @@
             size_hint_y: 0.5
             pos_hint: {"center_x": .5, "center_y": .5}
         MDFillRoundFlatButton:
+            id: gen_button
             text: "Generate"
             text_color: hex('#003153')
             md_bg_color: hex('#add8e6')
             pos_hint: {"center_x": .5, "center_y": .1}
             font_size: "15sp"
             on_release: 
+                root.get_text()
                 root.manager.current = "results"
-                root.gen_images()
 
 <ResultsScreen>:
     name: 'results'
@@ -49,6 +50,7 @@
             font_size: "40sp"
             font_name: "Pacifico"
         AsyncImage:
+            id: image
             size_hint: None,None
             size: root.height, root.height
             source: root.source

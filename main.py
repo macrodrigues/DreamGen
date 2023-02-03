@@ -8,18 +8,23 @@ from api import gen_5_images
 Window.clearcolor = (.9, .9, .9, 1)
 Window.size = (400, 500)
 
-urls = 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-2P7RBkMj286pwFp2tBL0Pdbe/user-U0RAcpr0hRCA6ZDNuci8CxE7/img-3KLEz8jb1UQnTchhtFueUD8L.png?st=2023-02-02T00%3A55%3A16Z&se=2023-02-02T02%3A55%3A16Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-02-01T21%3A21%3A37Z&ske=2023-02-02T21%3A21%3A37Z&sks=b&skv=2021-08-06&sig=L1a8Vxt0CkGqHIGajVyAXZa31i%2BH/xTcXxsnlACQx2U%3D'
-
 class HomeScreen(Screen):
-    def gen_images(self):
-        text = self.ids.input.text
-        self.urls = gen_5_images(text)
-
-class ResultsScreen(Screen):
     source = StringProperty()
-    def on_pre_enter(self, *args):
-        self.source = urls
+    def __init__(self, **kwargs): 
+        super(HomeScreen, self).__init__(**kwargs)
+        self.text = 'dog'
 
+    def get_text(self):
+        self.text = self.ids.input.text
+        # return self.text
+
+class ResultsScreen(HomeScreen):
+    source = StringProperty()
+    def on_manager(self, *args):
+        # gets run when manager property is changed
+        self.urls = gen_5_images(self.manager.get_screen('home').text)
+        self.source = self.urls[0]
+        
 class Main(MDApp):
     def build(self):
         Builder.load_file("layout.kv")
@@ -29,3 +34,4 @@ class Main(MDApp):
         return sm
 
 Main().run()
+
