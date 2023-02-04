@@ -2,7 +2,7 @@ import openai
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv('api_key.env')
 
 openai.organization = os.getenv("ORG")
 openai.api_key = os.getenv("API_KEY")

@@ -16,11 +16,10 @@ class HomeScreen(Screen):
 
     def get_text(self):
         self.text = self.ids.input.text
-        # return self.text
 
 class ResultsScreen(HomeScreen):
     source = StringProperty()
-    def on_manager(self, *args):
+    def on_enter(self, *args):
         # gets run when manager property is changed
         self.urls = gen_5_images(self.manager.get_screen('home').text)
         self.source = self.urls[0]
